@@ -8,9 +8,12 @@ LAZYGIT_CONFIG=$(echo "$(lazygit -cd)/config.yml")
 openLazygit () {
     # Gets the pane id from where the script was called
     local LAZYGIT_ORIGIN_PANE=($(tmux display-message -p "#D"))
+    
+    # Get the current working directory of the pane
+    local CURRENT_PATH=$(tmux display-message -p -t $LAZYGIT_ORIGIN_PANE "#{pane_current_path}")
 
     # Opens a new tmux window running lazygit appending the needed config
-    tmux neww \
+    tmux neww -c "$CURRENT_PATH" \
         -e LAZYGIT_EDITOR=$LAZYGIT_EDITOR \
         -e LAZYGIT_ORIGIN_PANE=$LAZYGIT_ORIGIN_PANE \
         lazygit \
