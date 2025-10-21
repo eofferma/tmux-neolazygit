@@ -7,6 +7,13 @@ tmux as if they were always meant to be together 😃.
 
 ![neolazygit-demo](https://i.imgur.com/OBFzJNk.gif)
 
+## Behaviour
+
+- Press the configured key to open lazygit in a dedicated `LG` window.
+- Subsequent key presses jump back to that window instead of spawning new ones.
+- Each tmux session gets its own `LG` window, so workflows stay isolated per session.
+- Returning to the editor re-focuses the pane that launched lazygit, ensuring remote edits land where you expect.
+
 ## Installation
 
 ### Using [TPM](https://github.com/tmux-plugins/tpm) (recommended)
